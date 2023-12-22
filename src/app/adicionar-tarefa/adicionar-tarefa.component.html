@@ -1,0 +1,17 @@
+<form>
+    <label for="titulo"> Tarefa: </label>
+    <input type="text" [(ngModel)]="novaTarefa.titulo" name="titulo">
+
+    <label for="data"> Data limite: </label>
+    <input type="date" [(ngModel)]="novaTarefa.data" name="data">
+
+    <label for="descricao">Descrição: </label>
+    <input type="text" [(ngModel)]="novaTarefa.descricao" name="descricao">
+
+    <input type="checkbox" name="prioridade" id="prioridade" [(ngModel)]="novaTarefa.prioridade" [ngModelOptions]="{standalone: true}">
+    <label for="prioridade"> Prioridade? </label>
+
+    <input type="button" value="adicionar tarefa" (click)="adicionarTarefa()">
+</form>
+
+<input type="button" value="EXIBIR TAREFAS" routerLink="/exibir">

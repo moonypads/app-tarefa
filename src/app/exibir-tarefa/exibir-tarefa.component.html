@@ -1,0 +1,11 @@
+<ul *ngFor="let trf of tarefas">
+    <li> Id: {{trf.id_tarefa}}</li>
+    <li>Título: {{trf.titulo}}</li>
+    <li>Data: {{trf.data}}</li>
+    <li>Descrição: {{trf.descricao}}</li>
+    <li>Prioridade: {{trf.prioridade}}</li>
+    <input type="button" value="EXCLUIR TAREFA" (click)="excluirTarefa(trf.id_tarefa)" >
+    <input type="button" value="EDITAR TAREFA" routerLink="/editar">
+</ul>
+
+<input type="button" value="ADICIONAR NOVA TAREFA" routerLink="/adicionar">
