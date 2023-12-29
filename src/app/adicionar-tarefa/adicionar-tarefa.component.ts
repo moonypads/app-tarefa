@@ -10,17 +10,21 @@ import { Tarefa } from '../tarefa';
 export class AdicionarTarefaComponent {
   novaTarefa: Tarefa = new Tarefa()
 
-  constructor(private ts: CrudService){}
+  constructor(private ts: CrudService) { }
 
-  adicionarTarefa(){
-    this.ts.adicionarTarefa(this.novaTarefa).subscribe(
-      resposta =>{
-        console.log('Tarefa adicionada com sucesso', resposta)
-        this.novaTarefa = new Tarefa();
-      }, 
-      erro => {
-        console.log('Error ao adicionar tarefa', erro)
-      }
-    )
+  adicionarTarefa() {
+    if (this.novaTarefa.titulo.trim().length === 0) {
+      return window.alert("Título da tarefa está em branco");
+    } else {
+      this.ts.adicionarTarefa(this.novaTarefa).subscribe(
+        resposta => {
+          console.log('Tarefa adicionada com sucesso', resposta)
+          this.novaTarefa = new Tarefa();
+        },
+        erro => {
+          console.log('Error ao adicionar tarefa', erro)
+        }
+      )
+    }
   }
 }
