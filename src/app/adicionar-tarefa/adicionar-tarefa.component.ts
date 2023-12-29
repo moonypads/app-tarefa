@@ -16,6 +16,7 @@ export class AdicionarTarefaComponent {
     this.ts.adicionarTarefa(this.novaTarefa).subscribe(
       resposta =>{
         console.log('Tarefa adicionada com sucesso', resposta)
+        this.novaTarefa = new Tarefa();
       }, 
       erro => {
         console.log('Error ao adicionar tarefa', erro)
