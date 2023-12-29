@@ -1,11 +1,16 @@
-<ul *ngFor="let trf of tarefas">
-    <li> Id: {{trf.id_tarefa}}</li>
-    <li>Título: {{trf.titulo}}</li>
-    <li>Data: {{trf.data}}</li>
-    <li>Descrição: {{trf.descricao}}</li>
-    <li>Prioridade: {{trf.prioridade}}</li>
-    <input type="button" value="EXCLUIR TAREFA" (click)="excluirTarefa(trf.id_tarefa)" >
-    <input type="button" value="EDITAR TAREFA" routerLink="/editar">
-</ul>
+<div class="container mt-3">
+  <div class="card-container">
+    <div *ngFor="let trf of tarefas" class="card">
+      <div class="card-body">
+        <h5 class="card-title fw-bold">{{trf.titulo}}</h5>
+        <p class="card-text">Data: {{trf.data}}</p>
+        <p class="card-text">Descrição: {{trf.descricao}}</p>
+        <p class="card-text text-danger fw-bold">{{ trf.prioridade ? 'Prioridade' : '' }}</p>
+        <button class="btn btn-outline-danger" 
+          style="--bs-btn-padding-y: .20rem; --bs-btn-padding-x: .3rem; --bs-btn-font-size: .80rem;" (click)="excluirTarefa(trf.id_tarefa)">Excluir tarefa</button>
+      </div>
+    </div>
+  </div>
 
-<input type="button" value="ADICIONAR NOVA TAREFA" routerLink="/adicionar">
+  <button class="btn btn-primary mt-3" routerLink="/adicionar">Adicionar nova tarefa</button>
+</div>
